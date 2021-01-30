@@ -1,6 +1,3 @@
-# cudatext_api
-cudatext_api (21.01.30)
-
 <details><summary><b>Intro</b></summary>  
 This is API for [[CudaText]] in Python.
 
@@ -190,6 +187,8 @@ Performs application-wide action.
 
 Parameter "text" is usually string, but can be of other types (bool, int, float, tuple/list of simple types).
 
+===================
+
 </details>
 <details><summary>* * <b>Misc properties</b> &nbsp; &nbsp; [Global funcs > app_proc > Misc properties]</summary>  
 
@@ -211,6 +210,8 @@ Parameter "text" is usually string, but can be of other types (bool, int, float,
 
 * PROC_CONFIG_SCALE_GET: Returns UI scales, as 2-tuple (int_scale_UI, int_scale_font). Both values are in percents, defaults are 100.
 * PROC_CONFIG_SCALE_SET: Sets UI scales, value must be 2-tuple (int_scale_UI, int_scale_font).
+
+===================
 
 </details>
 <details><summary>* * <b>Search properties</b> &nbsp; &nbsp; [Global funcs > app_proc > Search properties]</summary>  
@@ -244,6 +245,8 @@ Actions work with props of Find/Replace dialog, and props of low-level search en
 
 * PROC_SET_FINDER_PROP: Sets properties of Find/Replace dialog and search engine. Param "text" must be dict, with all or some keys listed in PROC_GET_FINDER_PROP. Values types: str (for text fields), bool (for flags), int (for choices).
 
+===================
+
 </details>
 <details><summary>* * <b>System</b> &nbsp; &nbsp; [Global funcs > app_proc > System]</summary>  
 
@@ -254,6 +257,8 @@ Actions work with props of Find/Replace dialog, and props of low-level search en
 * PROC_SEND_MESSAGE: For Windows. Sends message to a window by its handle. Param "text" must be 4-tuple of int (window_handle, msg_code, param1, param2).
 * PROC_GET_UNIQUE_TAG: Gets integer value, which is unique for the current CudaText process (it starts with 100, increasing with each call). Use this value for Editor.markers() and Editor.attr() tag values.
 
+===================
+
 </details>
 <details><summary>* * <b>Clipboard</b> &nbsp; &nbsp; [Global funcs > app_proc > Clipboard]</summary>  
 
@@ -263,6 +268,8 @@ Actions work with props of Find/Replace dialog, and props of low-level search en
 ** CudaText Copy commands put text to usual clipboard + primary selection.
 ** CudaText Paste commands get text from usual clipboard.
 ** CudaText Paste with option "mouse_mid_click_paste":true gets text from primary selection.
+
+===================
 
 </details>
 <details><summary>* * <b>Plugin calls</b> &nbsp; &nbsp; [Global funcs > app_proc > Plugin calls]</summary>  
@@ -303,6 +310,8 @@ Actions work with props of Find/Replace dialog, and props of low-level search en
 ** (for plugins) "p_from_api": bool: Shows that command was generated from API by some plugin.
 ** (for plugins) "p_in_menu": str: Value of parameter "menu" from install.inf.
 
+===================
+
 </details>
 <details><summary>* * <b>Hotkeys</b> &nbsp; &nbsp; [Global funcs > app_proc > Hotkeys]</summary>  
 
@@ -325,10 +334,14 @@ Notes:
 
 * Value of command_id can be: str(int_command_code) or "module,method" or "module,method,param".
 
+===================
+
 </details>
 <details><summary>* * <b>Python</b> &nbsp; &nbsp; [Global funcs > app_proc > Python]</summary>  
 * PROC_EXEC_PYTHON: Runs Python string in the context of Console. It is not the same as standard exec() call, it uses the same globals/locals as CudaText Console.
 * PROC_EXEC_PLUGIN: Runs Python plugin's method. Text must be comma-separated: "module_name,method_name,params", where "params" is optional part, it is parameter(s) for the method.
+
+===================
 
 </details>
 <details><summary>* * <b>Themes</b> &nbsp; &nbsp; [Global funcs > app_proc > Themes]</summary>  
@@ -348,6 +361,8 @@ Actions:
 * PROC_THEME_UI_DICT_GET: Returns contents of current UI-theme, as dict.
 * PROC_THEME_SYNTAX_DICT_GET: Returns contents of current syntax-theme, as dict. For description of keys of result, see LEXER_GET_STYLES.
 
+===================
+
 </details>
 <details><summary>* * <b>Sessions</b> &nbsp; &nbsp; [Global funcs > app_proc > Sessions]</summary>  
 
@@ -356,6 +371,8 @@ Session is a set of opened files + untitled tabs, with some properties of editor
 * PROC_SAVE_SESSION: Saves session to file with given name. Returns bool: session was saved.
 * PROC_LOAD_SESSION: Loads session from file with given name (closes all tabs first). Returns bool: tabs closed w/o pressing Cancel, session was loaded.
 * PROC_SET_SESSION: Tells to app filename of session. Session with this filename will be saved on exit, loaded on start, shown in app title in {} brackets. Don't set here empty string. Default filename is "history session.json" without path. Missing path means that folder "settings" will be used.
+
+===================
 
 </details>
 <details><summary>* * <b>Side panel</b> &nbsp; &nbsp; [Global funcs > app_proc > Side panel]</summary>  
@@ -377,6 +394,8 @@ Notes:
 
 * Name of icon file: name of png/bmp file. Icon size should be equal to size of current sidebar icon set, it's default is 20x20 (to detect size of icon set, you can read and parse CudaText option). If filename is without path, CudaText sub-dir "data/sideicons" is used (so only a standard icon name can be without path).
 
+===================
+
 </details>
 <details><summary>* * <b> Bottom panel</b> &nbsp; &nbsp; [Global funcs > app_proc >  Bottom panel]</summary>  
 
@@ -386,6 +405,8 @@ Notes:
 * PROC_BOTTOMPANEL_ENUM: Enumerates tabs. Same as for PROC_SIDEPANEL_ENUM.
 * PROC_BOTTOMPANEL_GET_CONTROL: Returns int handle of control. Same as for PROC_SIDEPANEL_GET_CONTROL.
 * PROC_BOTTOMPANEL_GET: Returns caption of last activated tab. Same as for PROC_SIDEPANEL_GET.
+
+===================
 
 </details>
 <details><summary>* * <b>Splitters</b> &nbsp; &nbsp; [Global funcs > app_proc > Splitters]</summary>  
@@ -459,6 +480,8 @@ G3
 t G1 t G2 t
 </pre>
 
+===================
+
 </details>
 <details><summary>* * <b>Show/Hide/Undock UI elements</b> &nbsp; &nbsp; [Global funcs > app_proc > Show/Hide/Undock UI elements]</summary>  
 
@@ -489,6 +512,8 @@ Actions can get/set state of UI elements (pass "0"/"1" or False/True):
 * PROC_FLOAT_SIDE_SET
 * PROC_FLOAT_BOTTOM_GET
 * PROC_FLOAT_BOTTOM_SET
+
+===================
 
 </details>
 
@@ -527,6 +552,8 @@ Possible values of "id" for "Console" panel:
 * LOG_CONSOLE_ADD: Adds line to console (its combobox and memo).
 * LOG_CONSOLE_GET_COMBO_LINES: Returns list of lines in combobox-control.
 * LOG_CONSOLE_GET_MEMO_LINES: Returns list of lines in memo-control.
+
+===================
 
 </details>
 
@@ -747,6 +774,8 @@ dlg_custom(title, size_x, size_y, text, focused=-1, get_dict=False)
 
 Shows dialog with controls of many types.
 
+===================
+
 </details>
 <details><summary>* * <b>Types</b> &nbsp; &nbsp; [Global funcs > dlg_custom > Types]</summary>  
 
@@ -796,6 +825,8 @@ Notes:
 * Control "paintbox" is empty area, plugin can paint on it. Get canvas_id via DLG_CTL_HANDLE, and use it in canvas_proc().
 * Control property "name" is required for "filter_nnnnn" controls: must set name of listbox/listview, and name of its filter - to the same name with prefix "f_" (e.g. listbox name "mylist" with filter name "f_mylist").
 
+===================
+
 </details>
 <details><summary>* * <b> Properties </b> &nbsp; &nbsp; [Global funcs > dlg_custom >  Properties ]</summary>  
 
@@ -825,6 +856,8 @@ Parameter "text" is "\n"-separated items, one item per control. Each item is chr
 * "val": value of control. Described below.
 * "items": list of items. Described below.
 
+===================
+
 </details>
 <details><summary>* * <b>Prop "items"</b> &nbsp; &nbsp; [Global funcs > dlg_custom > Prop "items"]</summary>  
 
@@ -838,6 +871,8 @@ Possible values of "items":
 * image: full path of picture file (png/gif/jpg/bmp)
 
 Action DLG_CTL_PROP_GET also returns key "items" (in the same format) for these controls: "listbox", "checklistbox", "listview", "checklistview".
+
+===================
 
 </details>
 <details><summary>* * <b>Prop "columns"</b> &nbsp; &nbsp; [Global funcs > dlg_custom > Prop "columns"]</summary>  
@@ -857,6 +892,8 @@ Action DLG_CTL_PROP_GET also returns key "columns" in the same format.
 
 Action DLG_CTL_PROP_SET, for "listview", allows both "items" (it sets columns) and "columns", and "columns" is applied last.
 
+===================
+
 </details>
 <details><summary>* * <b>Prop "val"</b> &nbsp; &nbsp; [Global funcs > dlg_custom > Prop "val"]</summary>  
 
@@ -870,6 +907,8 @@ Action DLG_CTL_PROP_SET, for "listview", allows both "items" (it sets columns) a
 * tabs, pages: index of active tab
 * trackbar, progressbar: int position
 
+===================
+
 </details>
 <details><summary>* * <b>Prop "props"</b> &nbsp; &nbsp; [Global funcs > dlg_custom > Prop "props"]</summary>  
 
@@ -877,6 +916,8 @@ Deprecated. Tuple of advanced control-specific properties. See description of pr
 
 * For dlg_custom, "props" must be str with ","-separated items, and "0"/"1" for bool items.
 * For dlg_proc, "props" must be simple type or tuple of simple types, e.g. (True, False, 2).
+
+===================
 
 </details>
 <details><summary>* * <b>Prop "ex"</b> &nbsp; &nbsp; [Global funcs > dlg_custom > Prop "ex"]</summary>  
@@ -950,6 +991,8 @@ Props "ex0"..."ex9" are control-specific. They have different simple type (str, 
 ** "ex2": bool: auto jump to edge, when size of linked control becomes < min size
 ** "ex3": int: mininal size of linked control (controlled by splitter)
 
+===================
+
 </details>
 <details><summary>* * <b>Result</b> &nbsp; &nbsp; [Global funcs > dlg_custom > Result]</summary>  
 
@@ -960,6 +1003,8 @@ Dialog is closed by clicking any button or by changing of any control which has 
 * If get_dict=False, returns 2-tuple: (clicked_index, state_text)
 ** "clicked_index": index of control which closed dialog (0-based).
 ** "state_text": "\n"-separated values of controls. Same count of items as in text, plus optional additional lines in the form "key=value". Line "focused=N" with index of last focused control (0-based) or -1.
+
+===================
 
 </details>
 
@@ -975,6 +1020,8 @@ Often the function works with some control. To pass some control here, use one o
 * Set param "name" to control's name. You give name to a control when you create this control. Param "name" is used if it's not empty.
 * Set param "index" to control's index. You get index of newly created control from dlg_proc call. You can find the index from name, using DLG_CTL_FIND action. Param "index" is used if it's >=0 and param "name" is empty.
 
+===================
+
 </details>
 <details><summary>* * <b>Types</b> &nbsp; &nbsp; [Global funcs > dlg_proc > Types]</summary>  
 
@@ -989,6 +1036,8 @@ Possible types of UI controls are described in dlg_custom, see [[#Types]]. Addit
 * "statusbar": statusbar: panel with one horizontal row of cells, works via statusbar_proc()
 * "toolbar": toolbar: panel which holds buttons with icons, works via toolbar_proc()
 * "treeview": tree structure with nodes and nested nodes, works via tree_proc()
+
+===================
 
 </details>
 <details><summary>* * <b>Form properties</b> &nbsp; &nbsp; [Global funcs > dlg_proc > Form properties]</summary>  
@@ -1015,6 +1064,8 @@ Possible types of UI controls are described in dlg_custom, see [[#Types]]. Addit
 * "p": int: Parent handle. Set this property to int handle of any windowed UI control or form, this control/form will be parent of form.
 * "focused" (only for reading): index of currently focused control.
 * (deprecated) "resize": bool: Border of form has "resizable" style.
+
+===================
 
 </details>
 <details><summary>* * <b>Form events</b> &nbsp; &nbsp; [Global funcs > dlg_proc > Form events]</summary>  
@@ -1048,6 +1099,8 @@ str_key =\
 ('Shift+' if 's' in data else '')+\
 app_proc(PROC_HOTKEY_INT_TO_STR, id_ctl)
 </syntaxhighlight>
+
+===================
 
 </details>
 <details><summary>* * <b>Control properties</b> &nbsp; &nbsp; [Global funcs > dlg_proc > Control properties]</summary>  
@@ -1101,6 +1154,8 @@ Special properties for controls "tabs", "pages":
 
 * "tab_hovered": int: index of tab under mouse cursor.
 
+===================
+
 </details>
 <details><summary>* * <b>Control events</b> &nbsp; &nbsp; [Global funcs > dlg_proc > Control events]</summary>  
 
@@ -1146,6 +1201,8 @@ Special events for control "editor"/"editor_edit"/"editor_combo":
 * "on_click_link": Called on mouse click (single or double, depends on settings) over hyperlink (hyperlinks are defined via PROP_LINKS_SHOW, PROP_LINKS_REGEX). Param "data" is str.
 * "on_paste": Called before doing one of Paste commands. Param "data" is dict: {"keep_caret": bool, "sel_then": bool}. Method can return False to disable default operation.
 
+===================
+
 </details>
 <details><summary>* * <b>Control events - signatures</b> &nbsp; &nbsp; [Global funcs > dlg_proc > Control events - signatures]</summary>  
 
@@ -1170,6 +1227,8 @@ Parameters:
 * "id_ctl": Int index of control. But for event "on_key_down" it has different meaning.
 * "data": Value specific to event.
 * "info": Additional value passed from CudaText, if extended form of callback is specified, with "info" part.
+
+===================
 
 </details>
 <details><summary>* * <b>Actions</b> &nbsp; &nbsp; [Global funcs > dlg_proc > Actions]</summary>  
@@ -1221,6 +1280,8 @@ Possible values of "id_action":
 * DLG_POS_SET_FROM_STR: Sets form position/size from string. Param "prop" is string value.
 ** It is faster than setting form properties "x", "y", "w", "h", it makes single resize.
 ** String format is the same as in DLG_POS_GET_STR, comma-separated numbers "x,y,w,h", any number can be skipped to keep old value.
+
+===================
 
 </details>
 <details><summary>* * <b>Anchors</b> &nbsp; &nbsp; [Global funcs > dlg_proc > Anchors]</summary>  
@@ -1275,6 +1336,8 @@ Example: to attach "colorpanel" to the right side of form, clear left anchor (se
 dlg_proc(id_form, DLG_CTL_PROP_SET, index=n, prop=
 { 'a_l': None, 'a_r': ('', ']'), 'a_b': ('', ']'), 'sp_a': 6  } )
 </syntaxhighlight>
+
+===================
 
 </details>
 
@@ -1624,6 +1687,8 @@ Possible values of "id":
 
 Result is True if params ok; False if params not ok (callback str incorrect, interval incorrect, not created callback on stopping); or None (for unknown id).
 
+===================
+
 </details>
 
 </details>
@@ -1632,6 +1697,8 @@ Result is True if params ok; False if params not ok (callback str incorrect, int
 menu_proc(id_menu, id_action, command="", caption="", index=-1, hotkey="", tag="")
 
 Perform action on menu items.
+
+===================
 
 </details>
 <details><summary>* * <b>Menu id</b> &nbsp; &nbsp; [Global funcs > menu_proc > Menu id]</summary>  
@@ -1651,6 +1718,8 @@ Value of "id_menu" can be:
 * "tab": tab header context menu
 * "toolmenu:"+name: dropdown submenu of toolbar button
 
+===================
+
 </details>
 <details><summary>* * <b>Command for new items</b> &nbsp; &nbsp; [Global funcs > menu_proc > Command for new items]</summary>  
 
@@ -1666,6 +1735,8 @@ Value of "command" parameter for MENU_ADD can be:
 ** "_oplugins": Settings-plugins submenu
 
 * empty string, if item will be used as submenu (item is a submenu, if any subitems are added to it)
+
+===================
 
 </details>
 <details><summary>* * <b>Item props as dict</b> &nbsp; &nbsp; [Global funcs > menu_proc > Item props as dict]</summary>  
@@ -1683,6 +1754,8 @@ Some actions get dict for menu items. Dict keys:
 * "vis": visible state, bool
 * "checked": checked state, bool
 * "radio": radio-item state, bool (it means round checkmark in checked state)
+
+===================
 
 </details>
 <details><summary>* * <b>Actions</b> &nbsp; &nbsp; [Global funcs > menu_proc > Actions]</summary>  
@@ -1713,6 +1786,8 @@ Possible values of "id_action":
 * MENU_SET_RADIOITEM: Changes radio kind of menu item. When item has radio kind, its checkmark is round (in checked state). Param "command" must be bool value.
 * MENU_SET_IMAGELIST: Changes image-list object of menu, which contains menu item. Param "command" must be image-list handle.
 * MENU_SET_IMAGEINDEX: Changes icon index of menu item (index in image-list). Param "index" must be icon index.
+
+===================
 
 </details>
 
@@ -1950,11 +2025,15 @@ s = ed.get_text_substr(x1, y1, x2, y2)
 msg_status('Selection: '+s)
 </syntaxhighlight>
 
+===================
+
 </details>
 
 </details>
 <details><summary>* <b>Text read/write</b> &nbsp; &nbsp; [Editor class > Text read/write]</summary>  
 <details><summary>&lt;descr&gt;</summary>  
+
+===================
 
 </details>
 <details><summary>* * <b>Editor.get_text_all</b> &nbsp; &nbsp; [Editor class > Text read/write > Editor.get_text_all]</summary>  
@@ -1963,6 +2042,8 @@ get_text_all()
 
 Returns the entire editor text, as string.
 Returns "\n" as line-breaks.
+
+===================
 
 </details>
 <details><summary>* * <b>Editor.set_text_all</b> &nbsp; &nbsp; [Editor class > Text read/write > Editor.set_text_all]</summary>  
@@ -1976,6 +2057,8 @@ Notes:
 * Function cannot work with read-only editor (see Editor.get_prop, Editor.set_prop and PROP_RO).
 * Function looses Undo information. To support Undo, use another API to set text, e.g. Editor.replace().
 
+===================
+
 </details>
 <details><summary>* * <b>Editor.get_text_line</b> &nbsp; &nbsp; [Editor class > Text read/write > Editor.get_text_line]</summary>  
 
@@ -1986,6 +2069,8 @@ Returns None if index incorrect.
 
 If param "max_len" is non-zero, and UTF-8 length of given line is greater than "max_len", function returns empty str. This allows to skip huge lines.
 
+===================
+
 </details>
 <details><summary>* * <b>Editor.set_text_line</b> &nbsp; &nbsp; [Editor class > Text read/write > Editor.set_text_line]</summary>  
 
@@ -1995,12 +2080,16 @@ Sets single line (str) with given index (0-based).
 Text must be without line-breaks.
 To add new line, pass index=-1.
 
+===================
+
 </details>
 <details><summary>* * <b>Editor.get_text_substr</b> &nbsp; &nbsp; [Editor class > Text read/write > Editor.get_text_substr]</summary>  
 
 get_text_substr(x1, y1, x2, y2)
 
 Returns substring from position (x1, y1) to bigger position (x2, y2).
+
+===================
 
 </details>
 <details><summary>* * <b>Editor.delete</b> &nbsp; &nbsp; [Editor class > Text read/write > Editor.delete]</summary>  
@@ -2026,6 +2115,8 @@ ed.delete(x0, y0, x1, y1)
 ed.insert(x0, y0, text)
 </syntaxhighlight>
 
+===================
+
 </details>
 <details><summary>* * <b>Editor.insert</b> &nbsp; &nbsp; [Editor class > Text read/write > Editor.insert]</summary>  
 
@@ -2035,6 +2126,8 @@ Inserts given text at position (x, y). If y too big, appends block to end (even 
 Text can be multi-line, all CR LF are converted to currently used line-breaks.
 
 Returns 2-tuple (x, y) of position after inserted text. It is on the same line, if text is single line. Returns None if cannot insert.
+
+===================
 
 </details>
 <details><summary>* * <b>Editor.replace</b> &nbsp; &nbsp; [Editor class > Text read/write > Editor.replace]</summary>  
@@ -2053,11 +2146,15 @@ Function does the same as delete+insert, but
 
 Returns 2-tuple (x, y) of position after inserted text.
 
+===================
+
 </details>
 
 </details>
 <details><summary>* <b>Selection</b> &nbsp; &nbsp; [Editor class > Selection]</summary>  
 <details><summary>&lt;descr&gt;</summary>  
+
+===================
 
 </details>
 <details><summary>* * <b>Editor.get_text_sel</b> &nbsp; &nbsp; [Editor class > Selection > Editor.get_text_sel]</summary>  
@@ -2065,6 +2162,8 @@ Returns 2-tuple (x, y) of position after inserted text.
 get_text_sel()
 
 Returns selected text for 1st caret (empty, if no selection).
+
+===================
 
 </details>
 <details><summary>* * <b>Editor.get_sel_mode</b> &nbsp; &nbsp; [Editor class > Selection > Editor.get_sel_mode]</summary>  
@@ -2076,6 +2175,8 @@ Returns current selection mode:
 * SEL_NORMAL: normal (stream) selection; it doesn't mean that selection exists.
 * SEL_COLUMN: column (vertical) selection.
 
+===================
+
 </details>
 <details><summary>* * <b>Editor.get_sel_lines</b> &nbsp; &nbsp; [Editor class > Selection > Editor.get_sel_lines]</summary>  
 
@@ -2083,11 +2184,15 @@ get_sel_lines()
 
 Returns 2-tuple, indexes of first and last lines affected by first caret selection. Returns (-1,-1) if no selection.
 
+===================
+
 </details>
 
 </details>
 <details><summary>* <b>Properties</b> &nbsp; &nbsp; [Editor class > Properties]</summary>  
 <details><summary>&lt;descr&gt;</summary>  
+
+===================
 
 </details>
 <details><summary>* * <b>Editor.get_line_count</b> &nbsp; &nbsp; [Editor class > Properties > Editor.get_line_count]</summary>  
@@ -2095,6 +2200,8 @@ Returns 2-tuple, indexes of first and last lines affected by first caret selecti
 get_line_count()
 
 Returns number of lines.
+
+===================
 
 </details>
 <details><summary>* * <b>Editor.get_filename</b> &nbsp; &nbsp; [Editor class > Properties > Editor.get_filename]</summary>  
@@ -2107,6 +2214,8 @@ Returns filename (str) of the editor.
 * Returns string "?" if tab contains not normal text editor. See: get_prop(PROP_KIND).
 
 If param "options" contains char "*", the real file name is always returned, even in hex/picture viewer mode.
+
+===================
 
 </details>
 <details><summary>* * <b>Editor.get_prop</b> &nbsp; &nbsp; [Editor class > Properties > Editor.get_prop]</summary>  
@@ -2254,6 +2363,8 @@ Param "value" can be: str, number, bool (for bool it can be also "0"/"1"). Possi
 * PROP_V_WIDTH_HEX: int: for binary viewer, width of text in mode VMODE_HEX.
 * PROP_V_WIDTH_UHEX: int: for binary viewer, width of text in mode VMODE_UNICODE_HEX.
 
+===================
+
 </details>
 <details><summary>* * <b>Editor.set_prop</b> &nbsp; &nbsp; [Editor class > Properties > Editor.set_prop]</summary>  
 
@@ -2366,6 +2477,8 @@ Param "value" can be: str, number, bool (for bool it can be also "0"/"1"), tuple
 * PROP_V_WIDTH_HEX: int: for binary viewer, width of text in mode VMODE_HEX.
 * PROP_V_WIDTH_UHEX: int: for binary viewer, width of text in mode VMODE_UNICODE_HEX.
 
+===================
+
 </details>
 <details><summary>* * <b>props vs options</b> &nbsp; &nbsp; [Editor class > Properties > props vs options]</summary>  
 
@@ -2397,6 +2510,8 @@ Many get_prop/set_prop ids correspond to CudaText options. List of correspoding 
 * PROP_UNPRINTED_SPACES - unprinted_spaces
 * PROP_UNPRINTED_SPACES_TRAILING - unprinted_spaces_trailing
 * PROP_WRAP - wrap_mode
+
+===================
 
 </details>
 <details><summary>* * <b>Editor.bookmark</b> &nbsp; &nbsp; [Editor class > Properties > Editor.bookmark]</summary>  
@@ -2448,6 +2563,8 @@ Notes:
 * Param "nkind" must be in the range 1..63.
 * Param "nkind" values 2..9 have setup by default: they have blue icons "1" to "8".
 
+===================
+
 </details>
 <details><summary>* * <b>Editor.decor</b> &nbsp; &nbsp; [Editor class > Properties > Editor.decor]</summary>  
 
@@ -2471,6 +2588,8 @@ Controls decorations on gutter. It is used to show some visual marks, which look
 * DECOR_DELETE_BY_TAG: Deletes all decorations for given tag. Param used: "tag".
 * DECOR_DELETE_ALL: Deletes all decorations.
 * DECOR_GET_IMAGELIST: Returns int handle of decoration image-list (default size is 16x16).
+
+===================
 
 </details>
 <details><summary>* * <b>Editor.folding</b> &nbsp; &nbsp; [Editor class > Properties > Editor.folding]</summary>  
@@ -2510,6 +2629,8 @@ Performs action on folding ranges. Possible values of "id":
 * FOLDING_CHECK_RANGE_INSIDE: For 2 ranges, which indexes given by "index" and "item_x", detects: 1st range is inside 2nd range. Returns bool. Returns False if indexes incorrect.
 * FOLDING_CHECK_RANGES_SAME: For 2 ranges, which indexes given by "index" and "item_x", detects: ranges are "equal" (x, y, y2 in ranges may differ). Returns bool. Returns False if indexes incorrect.
 
+===================
+
 </details>
 <details><summary>* * <b>Editor.get_sublexer_ranges</b> &nbsp; &nbsp; [Editor class > Properties > Editor.get_sublexer_ranges]</summary>  
 
@@ -2522,6 +2643,8 @@ Returns list of ranges which belong to nested lexers (sublexers of current lexer
 * int: start line (0-based)
 * int: end column
 * int: end line
+
+===================
 
 </details>
 <details><summary>* * <b>Editor.get_token</b> &nbsp; &nbsp; [Editor class > Properties > Editor.get_token]</summary>  
@@ -2549,6 +2672,8 @@ Possible values of "id":
 
 * TOKEN_LIST_SUB: Like TOKEN_LIST, but returns tokens only for given lines range, from "index1" to "index2" inclusive. Index in "index2" can be too big, this makes list until end of file.
 
+===================
+
 </details>
 <details><summary>* * <b>Editor.get_wrapinfo</b> &nbsp; &nbsp; [Editor class > Properties > Editor.get_wrapinfo]</summary>  
 
@@ -2564,6 +2689,8 @@ Returns list of dict, or None. Dict items has keys:
 * "indent": int: Screen indent in spaces, for this part, it's used in rendering when option "Show wrapped parts indented" is on.
 * "final": int: State of this part. 0: final part of the entire line; 1: partially folded part; 2: first or middle part of the entire line.
 * "initial": bool: True if part is initial for the entire (wrapped) line, False if it is continuation (ie, wrapped) part.
+
+===================
 
 </details>
 <details><summary>* * <b>Editor.markers</b> &nbsp; &nbsp; [Editor class > Properties > Editor.markers]</summary>  
@@ -2593,6 +2720,8 @@ Controls markers (used e.g. in Snippets plugin). Possible values of "id":
 * MARKERS_DELETE_LAST: Deletes last added marker.
 * MARKERS_DELETE_BY_TAG: Deletes all markers with the given tag. Param "tag": tag value.
 * MARKERS_DELETE_BY_INDEX: Deletes marker by its index in the markers list. Param "tag": index (0-based).
+
+===================
 
 </details>
 <details><summary>* * <b>Editor.attr</b> &nbsp; &nbsp; [Editor class > Properties > Editor.attr]</summary>  
@@ -2639,6 +2768,8 @@ Notes:
 * Duplicate fragments, ie with the same (x, y) pair, are allowed. Last added fragments go to the later indexes, and all fragments are painted in their order in the fragment list, so last added fragments are painted over previous ones.
 * Param "color_bg" can be COLOR_NONE: it uses usual back-color.
 * Params "color_font", "color_border" can be COLOR_NONE: it uses usual text-color.
+
+===================
 
 </details>
 
