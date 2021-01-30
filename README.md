@@ -24,6 +24,8 @@ Plugin can subscribe to events in several ways:
 
 Event handlers (Command.on_nnnnn methods) return-value is ignored is many cases, but sometimes return value True or False has special meaning. Usually the False return value blocks propagation of event to other plugins, so don't return False if not necessary.
 
+===================
+
 </details>
 <details><summary>* <b>Events - General</b> &nbsp; &nbsp; [Event plugins > Events - General]</summary>  
 
@@ -40,11 +42,15 @@ Event handlers (Command.on_nnnnn methods) return-value is ignored is many cases,
 * on_app_activate(self, ed_self): Called when application window gets focus. ed_self is None.
 * on_app_deactivate(self, ed_self): Called when application window looses focus. ed_self is None.
 
+===================
+
 </details>
 <details><summary>* <b>Events - Tabs</b> &nbsp; &nbsp; [Event plugins > Events - Tabs]</summary>  
 
 * on_tab_change(self, ed_self): Called after active tab is changed.
 * on_tab_move(self, ed_self): Called after closing a tab (another tab is already activated), or moving a tab (by drag-n-drop, or UI command).
+
+===================
 
 </details>
 <details><summary>* <b>Events - Editor</b> &nbsp; &nbsp; [Event plugins > Events - Editor]</summary>  
@@ -66,6 +72,8 @@ Event handlers (Command.on_nnnnn methods) return-value is ignored is many cases,
 * on_state_ed(self, ed_self, state): Called after some editor state is changed. Param "state" is one of EDSTATE_nnnn constants.
 * on_snippet(self, ed_self, snippet_id, snippet_text): Called when user chooses snippet to insert, in ed.complete_alt() call.
 
+===================
+
 </details>
 <details><summary>* <b>Events - Editor clicks</b> &nbsp; &nbsp; [Event plugins > Events - Editor clicks]</summary>  
 
@@ -75,6 +83,8 @@ Event handlers (Command.on_nnnnn methods) return-value is ignored is many cases,
 * on_click_gap(self, ed_self, state, nline, ntag, size_x, size_y, pos_x, pos_y): Called after mouse click on inter-line gap: see Editor.gap(). Param "state": same meaning as in on_key. Other params: properties of clicked gap.
 * on_click_link(self, ed_self, state, link): Called after link/URL in the editor is activated by click or double-click (event is not called on URL opening from Command Palette or from editor context menu). Param "state": same meaning as in on_key. Param "link": link string. Method can return False to disable default program action.
 
+===================
+
 </details>
 <details><summary>* <b>Events - Smart commands</b> &nbsp; &nbsp; [Event plugins > Events - Smart commands]</summary>  
 
@@ -83,12 +93,16 @@ Event handlers (Command.on_nnnnn methods) return-value is ignored is many cases,
 * on_goto_def(self, ed_self): Called by "go to definition" command (e.g. by mouse shortcut or by menu item in the editor context menu). Method must return True if it handled the command, otherwise None.
 * on_goto_enter(self, ed_self, text): Called after user entered text in the Go To dialog. Method can return False to disable default processing.
 
+===================
+
 </details>
 <details><summary>* <b>Events - Panels</b> &nbsp; &nbsp; [Event plugins > Events - Panels]</summary>  
 
 * on_message(self, ed_self, id, text): Called on showing a text in the statusbar. Param "id" means statusbar column index, currently only value 0 is used ("text message" statusbar cell). Method can return False to disable usual showing of message. Param "ed_self" is None here.
 * on_console_nav(self, ed_self, text): Called on double-clicking line, or calling context menu item "Navigate", in Python Console panel. Param "text" is line with caret. Param "ed_self" is None here.
 * on_output_nav(self, ed_self, text, tag): Called on clicking line, or pressing Enter, in the Output or Validate panel. Param "text" is clicked line, param "tag" is int value associated with line. Event is called only if app cannot parse output line by itself using given regex, or regex is not set. Param "ed_self" is None here.
+
+===================
 
 </details>
 <details><summary>* <b>Events - Macros</b> &nbsp; &nbsp; [Event plugins > Events - Macros]</summary>  
@@ -100,6 +114,8 @@ Event handlers (Command.on_nnnnn methods) return-value is ignored is many cases,
 
 Note: To run each on_macro item (with number) later, call ed.cmd(): number is command code, string after comma is command text.
 
+===================
+
 </details>
 <details><summary>* <b>Events priority</b> &nbsp; &nbsp; [Event plugins > Events priority]</summary>  
 
@@ -107,6 +123,8 @@ By default all events in all plugins have priority=0. So for any event, if 2+ pl
 
 You may want to handle some event first.
 To change priority for your plugin event, write in install.inf event like this: "on_key+", "on_key++"... with any number of "+" up to 4. Each "+" makes higher priority. So first called "on_key" with maximal number of "+", last called "on_key" without "+".
+
+===================
 
 </details>
 
@@ -139,6 +157,8 @@ Value after "info=" can be of any type, e.g. "info=20;" will pass int 20 to call
 <details><summary><b>Global funcs</b></summary>  
 <details><summary>&lt;descr&gt;</summary>  
 
+===================
+
 </details>
 <details><summary>* <b>version</b> &nbsp; &nbsp; [Global funcs > version]</summary>  
 
@@ -162,6 +182,8 @@ if API < 350:
 msg_box('Plugin needs newer program version', MB_OK+MB_ICONWARNING)
 </syntaxhighlight>
 
+===================
+
 </details>
 <details><summary>* <b>app_path</b> &nbsp; &nbsp; [Global funcs > app_path]</summary>  
 
@@ -177,6 +199,8 @@ Returns file-system path. Possible values of "id":
 * APP_DIR_INSTALLED_ADDON: Folder of last installed addon (for plugins it is folder in "py", for data-files it is folder in "data", for lexers it is folder "lexlib"). This dir is updated only if addon installed via file_open() or from app (Open dialog or command line).
 * APP_FILE_SESSION: Filename of current session. Default filename is "history session.json" without path. Missing path means that folder "settings" will be used.
 * APP_FILE_RECENTS: Str: "\n"-separated filenames of recent files.
+
+===================
 
 </details>
 <details><summary>* <b>app_proc</b> &nbsp; &nbsp; [Global funcs > app_proc]</summary>  
@@ -564,6 +588,8 @@ app_idle(wait=False)
 
 Performs application's message-processing. If wait=True, also waits for new UI event.
 
+===================
+
 </details>
 <details><summary>* <b>emmet</b> &nbsp; &nbsp; [Global funcs > emmet]</summary>  
 
@@ -583,6 +609,8 @@ Performs action with embedded Emmet engine. Possible values of "id":
 * EMMET_GET_POS: Find beginning of abbreviation in given string. Returns offset in string (0-based), or None.
 ** Param "text": Text string (can include unneeded text after caret position, can include HTML tags before abbreviation).
 ** Param "p1": Caret offset (0-based) to search abbreviation to the left of it.
+
+===================
 
 </details>
 <details><summary>* <b>msg_box</b> &nbsp; &nbsp; [Global funcs > msg_box]</summary>  
@@ -617,6 +645,8 @@ Returns int code of pressed button (returns ID_CANCEL if dialog cancelled):
 * ID_YES
 * ID_NO
 
+===================
+
 </details>
 <details><summary>* <b>msg_box_ex</b> &nbsp; &nbsp; [Global funcs > msg_box_ex]</summary>  
 
@@ -636,6 +666,8 @@ Shows modal message-box with any number of buttons with any captions.
 
 Returns int index of pressed button (0-based), or None of cancelled.
 
+===================
+
 </details>
 <details><summary>* <b>msg_status</b> &nbsp; &nbsp; [Global funcs > msg_status]</summary>  
 
@@ -644,6 +676,8 @@ msg_status(text, process_messages=False)
 Shows given text in statusbar.
 
 Param "process_messages": if True, function also does UI messages processing. It takes some time, it is needed to refresh status of Esc-key pressed. After call msg_status(..., True) you can get state of Esc-key pressed via PROC_GET_ESCAPE, otherwise plugin gets an old state, until UI messages are processed.
+
+===================
 
 </details>
 <details><summary>* <b>msg_status_alt</b> &nbsp; &nbsp; [Global funcs > msg_status_alt]</summary>  
@@ -654,6 +688,8 @@ Shows given text in the floating tooptip on the top. Multi-line text (with "\n")
 
 Param "seconds": show pause in seconds, 1..30. Value<=0 hides the tooltip.
 
+===================
+
 </details>
 <details><summary>* <b>dlg_input</b> &nbsp; &nbsp; [Global funcs > dlg_input]</summary>  
 
@@ -663,6 +699,8 @@ Shows modal dialog to input one string. Returns entered string or None if cancel
 
 * Param "label": prompt text above input field.
 * Param "text": initial value of input field.
+
+===================
 
 </details>
 <details><summary>* <b>dlg_input_ex</b> &nbsp; &nbsp; [Global funcs > dlg_input_ex]</summary>  
@@ -678,6 +716,8 @@ Shows modal dialog to enter 1 to 10 string fields at once. Returns list of strin
 * Param "number": count of input fields.
 * Params "label": prompt text above input field.
 * Params "text": initial value of input field.
+
+===================
 
 </details>
 <details><summary>* <b>dlg_file</b> &nbsp; &nbsp; [Global funcs > dlg_file]</summary>  
@@ -697,6 +737,8 @@ Additional options:
 * To allow multi-selection in the "Open" dialog, pass init_filename="*". If single filename was selected, result is str. If several filenames were selected, result is list of str.
 * To disable checking "entered filename exists" in the "Open" dialog, start init_filename with "!".
 
+===================
+
 </details>
 <details><summary>* <b>dlg_dir</b> &nbsp; &nbsp; [Global funcs > dlg_dir]</summary>  
 
@@ -706,6 +748,8 @@ Shows dialog to select folder path. Returns path (str), or None if cancelled.
 
 * Param "init_dir": Initial folder.
 * Param "caption": Dialog caption.
+
+===================
 
 </details>
 <details><summary>* <b>dlg_menu</b> &nbsp; &nbsp; [Global funcs > dlg_menu]</summary>  
@@ -735,6 +779,8 @@ Parameters:
 * Param "w": If value>0, width of dialog.
 * Param "h": If value>0, height of dialog.
 
+===================
+
 </details>
 <details><summary>* <b>dlg_color</b> &nbsp; &nbsp; [Global funcs > dlg_color]</summary>  
 
@@ -744,6 +790,8 @@ Shows select-color dialog with given initial color (int).
 
 Returns int color, or None if cancelled.
 
+===================
+
 </details>
 <details><summary>* <b>dlg_hotkey</b> &nbsp; &nbsp; [Global funcs > dlg_hotkey]</summary>  
 
@@ -752,6 +800,8 @@ dlg_hotkey(title="")
 Shows dialog to press single hotkey.
 
 Returns str of hotkey (e.g. "F1", "Ctrl+Alt+B") or None if cancelled.
+
+===================
 
 </details>
 <details><summary>* <b>dlg_hotkeys</b> &nbsp; &nbsp; [Global funcs > dlg_hotkeys]</summary>  
@@ -766,6 +816,8 @@ Param "command" can be:
 * "module_name,method_name" or "module_name,method_name,method_param": for command plugin.
 
 Param "lexer" is optional lexer name. If not empty, dialog enables checkbox "For current lexer" and, if checkbox checked, saves hotkey to lexer-specific config "keys lexer NNNN.json".
+
+===================
 
 </details>
 <details><summary>* <b>dlg_custom</b> &nbsp; &nbsp; [Global funcs > dlg_custom]</summary>  
@@ -1363,6 +1415,8 @@ Params "w" and "h": if values>0, they are width and height of dialog.
 
 Returns string if command selected, or None if cancelled.
 
+===================
+
 </details>
 <details><summary>* <b>file_open</b> &nbsp; &nbsp; [Global funcs > file_open]</summary>  
 
@@ -1408,6 +1462,8 @@ file_open('')
 ed.set_text_all(text)
 </syntaxhighlight>
 
+===================
+
 </details>
 <details><summary>* <b>ed_handles</b> &nbsp; &nbsp; [Global funcs > ed_handles]</summary>  
 
@@ -1424,6 +1480,8 @@ e = Editor(h)
 print(e.get_filename())
 </syntaxhighlight>
 
+===================
+
 </details>
 <details><summary>* <b>ed_group</b> &nbsp; &nbsp; [Global funcs > ed_group]</summary>  
 
@@ -1432,6 +1490,8 @@ ed_group(index)
 Returns Editor object for active editor in tab-group with given group-index. Returns None for incorrect index, or if no tabs in this group.
 
 Index possible values: 0..5 (first 6 groups) and 6..8 (3 floating groups).
+
+===================
 
 </details>
 <details><summary>* <b>ini_read/ini_write</b> &nbsp; &nbsp; [Global funcs > ini_read/ini_write]</summary>  
@@ -1450,6 +1510,8 @@ Reads/writes single string from/to .ini file. Params:
 
 On read: returns string value. On write: returns None.
 
+===================
+
 </details>
 <details><summary>* <b>ini_proc</b> &nbsp; &nbsp; [Global funcs > ini_proc]</summary>  
 
@@ -1463,6 +1525,8 @@ Possible values of "id":
 * INI_GET_KEYS: Returns list of keys in given section. Param "key" ignored.
 * INI_DELETE_KEY: Deletes given key in given section.
 * INI_DELETE_SECTION: Deletes given section with all its keys. Param "key" ignored.
+
+===================
 
 </details>
 <details><summary>* <b>lexer_proc</b> &nbsp; &nbsp; [Global funcs > lexer_proc]</summary>  
@@ -1499,6 +1563,8 @@ Possible values of "id":
 * LEXER_REREAD_LIB: Re-reads lexer library from disk, updates lexer menu. Make sure that plugins' dialogs don't use editor with lexer, which may crash.
 
 * LEXER_ADD_VIRTUAL: Adds virtual lexer, which doesn't have a file and doesn't highlight text, it's only an item in lexers list. The purpose of virtual lexers is to avoid creating lexer files, but allow plugins to be activated by some lexer name / some file types. Param "value" must be tuple of string: (lexer_name, file_types, line_comment, range_comment_begin, range_comment_end). Item file_types here must have the same notation as for "lite" lexers, e.g. "*.pas;*.pp;*.lpr". Virtual lexers are added to the "lite" lexers list, and show the same suffix in lexer menu. To activate such a lexer, call Editor.set_prop(PROP_LEXER_FILE, lexer_name+suffix). Action returns bool: lexer_name didn't exist, lexer was added.
+
+===================
 
 </details>
 <details><summary>* <b>tree_proc</b> &nbsp; &nbsp; [Global funcs > tree_proc]</summary>  
@@ -1565,6 +1631,8 @@ Possible values of "id_action":
 * TREE_ITEM_GET_RANGE: Should be used only for code-tree. Returns range, stored in tree-item, as 4-tuple (start_x, start_y, end_x, end_y). If range is not set, returns (-1,-1,-1,-1).
 * TREE_ITEM_SET_RANGE: Should be used only for code-tree. Sets range for tree-item. Param "text" must be 4-tuple of int (start_x, start_y, end_x, end_y).
 
+===================
+
 </details>
 <details><summary>* <b>listbox_proc</b> &nbsp; &nbsp; [Global funcs > listbox_proc]</summary>  
 
@@ -1624,6 +1692,8 @@ listbox_proc(h_list, LISTBOX_SET_COLUMNS, text=[-50,0,-20]) # width<0 means valu
 listbox_proc(h_list, LISTBOX_ADD, index=-1, text='first|second|third')
 </syntaxhighlight>
 
+===================
+
 </details>
 <details><summary>* <b>canvas_proc</b> &nbsp; &nbsp; [Global funcs > canvas_proc]</summary>  
 
@@ -1666,6 +1736,8 @@ Possible values of "id_action":
 * CANVAS_ELLIPSE: Paints ellipse or circle. Uses pen and brush. Params: x, y, x2, y2.
 * CANVAS_POLYGON: Paints polygon from any number of points (>2). Uses pen and brush. Params: text - comma separated list of (x,y) coords. Example: "10,10,200,50,10,100" - 3 points.
 * CANVAS_SET_TESTPANEL: Sets height of testing panel at the top. Params: size. If it's "too small", panel hides; for big size, size is limited.
+
+===================
 
 </details>
 <details><summary>* <b> timer_proc </b> &nbsp; &nbsp; [Global funcs >  timer_proc ]</summary>  
@@ -1818,6 +1890,8 @@ Param "id_action" possible values:
 * TOOLBAR_SET_WRAP: Sets wrappable state of toolbar (implemented for horizontal toolbar only). Param "index": bool value.
 * TOOLBAR_THEME: Applies current UI theme to toolbar.
 
+===================
+
 </details>
 <details><summary>* <b>statusbar_proc</b> &nbsp; &nbsp; [Global funcs > statusbar_proc]</summary>  
 
@@ -1889,6 +1963,8 @@ Notes:
 
 * If cell text not empty, alignment applies only for text, icon is on the left. If text empty, alignment applies for icon.
 
+===================
+
 </details>
 <details><summary>* <b>imagelist_proc</b> &nbsp; &nbsp; [Global funcs > imagelist_proc]</summary>  
 
@@ -1912,6 +1988,8 @@ Possible values of "id_action":
 * IMAGELIST_DELETE_ALL: Deletes all icons.
 * IMAGELIST_PAINT: Paints single icon on given canvas, at given coords. Param "value" must be tuple (canvas_id, x, y, icon_index). Value canvas_id can be 0 for testing paintbox in CudaText.
 
+===================
+
 </details>
 <details><summary>* <b>image_proc</b> &nbsp; &nbsp; [Global funcs > image_proc]</summary>  
 
@@ -1931,6 +2009,8 @@ Possible values of "id_action":
 * IMAGE_LOAD: Reads picture file into image object. Param "value" must be full file path (png, jpg, bmp, gif, ico).
 * IMAGE_PAINT: Paints image object on given canvas, at given coords. Param "value" must be tuple (canvas_id, x, y). Value canvas_id can be 0, for testing paintbox in CudaText.
 * IMAGE_PAINT_SIZED: Paints image object on given canvas, resized to given rectangle. Param "value" must be tuple (canvas_id, x1, y1, x2, y2).
+
+===================
 
 </details>
 <details><summary>* <b>button_proc</b> &nbsp; &nbsp; [Global funcs > button_proc]</summary>  
@@ -1987,6 +2067,8 @@ Possible values of "id_action":
 
 Note: Toolbars contain several "button_ex" objects, which are anchored one to another (horizontally or vertically). You can also construct such toolbar by hands. API toolbar_proc() don't allow to specify kind of buttons, it sets kind from button properties.
 
+===================
+
 </details>
 
 </details>
@@ -1999,6 +2081,8 @@ Editor class has methods to work with editor. Global objects of Editor exist:
 * "ed": refers to currently focused editor (in any tab).
 * "ed_con_log": refers to log field (multi-line) in the "Console" panel.
 * "ed_con_in": refers to input field (single line) in the "Console" panel.
+
+===================
 
 </details>
 <details><summary>* <b>Carets</b> &nbsp; &nbsp; [Editor class > Carets]</summary>  
@@ -2834,11 +2918,15 @@ To see how to port, compare files "linter.py". Other files must be added like in
 <details><summary><b>Tech info</b></summary>  
 <details><summary>&lt;descr&gt;</summary>  
 
+===================
+
 </details>
 <details><summary>* <b>Format of text for cmd_MouseClick</b> &nbsp; &nbsp; [Tech info > Format of text for cmd_MouseClick]</summary>  
 
 Text is "X,Y" where X/Y are position of caret relative to top-caret (other carets removed when command runs). If Y is 0, X is addition to caret's x.
 If Y not 0, Y is addition to caret's y, and X is absolute caret's x.
+
+===================
 
 </details>
 <details><summary>* <b>Finder options as string</b> &nbsp; &nbsp; [Tech info > Finder options as string]</summary>  
@@ -2862,6 +2950,8 @@ Some APIs allow to specify finder options as a string. Such string can have the 
 ** "5": except strings
 ** "6": except comments/strings
 
+===================
+
 </details>
 <details><summary>* <b>Format of text for cmd_FinderAction</b> &nbsp; &nbsp; [Tech info > Format of text for cmd_FinderAction]</summary>  
 
@@ -2880,6 +2970,8 @@ Text is chr(1) separated items:
 * item 1: Text to find
 * item 2: Text to replace with
 * item 3: Options string, see [[#Finder_options_as_string]]
+
+===================
 
 </details>
 
@@ -2956,6 +3048,8 @@ This will show:
 
 Options Editor stores values in JSON with trailing comma, so to read these options, plugin must use cudax_lib.get_opt() instead of json.load().
 
+===================
+
 </details>
 
 </details>
@@ -2963,6 +3057,8 @@ Options Editor stores values in JSON with trailing comma, so to read these optio
 ---
 <details><summary><b>Questions</b></summary>  
 <details><summary>&lt;descr&gt;</summary>  
+
+===================
 
 </details>
 <details><summary>* <b>How plugin can fill code-tree</b> &nbsp; &nbsp; [Questions > How plugin can fill code-tree]</summary>  
@@ -2973,6 +3069,8 @@ Options Editor stores values in JSON with trailing comma, so to read these optio
 ** Disable standard tree filling via ed.set_prop(PROP_CODETREE, False)
 ** Clear tree via tree_proc(h_tree, TREE_ITEM_DELETE, id_item=0)
 ** On adding tree items, set range for them via tree_proc(h_tree, TREE_ITEM_SET_RANGE...)
+
+===================
 
 </details>
 <details><summary>* <b>How plugin can show tooltips on mouse-over</b> &nbsp; &nbsp; [Questions > How plugin can show tooltips on mouse-over]</summary>  
@@ -2991,6 +3089,8 @@ Options Editor stores values in JSON with trailing comma, so to read these optio
 ** Set dialog pos (props "x", "y") to editor-related pixel coords. It is complex. See example: plugin HTML Tooltips.
 ** Show dialog via dlg_proc(..., DLG_SHOW_NONMODAL)
 * On exiting hotspot, hide dialog
+
+===================
 
 </details>
 
